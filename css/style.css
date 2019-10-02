@@ -747,6 +747,7 @@ img {
   min-width: 345px;
   padding-left: 23px;
   padding-right: 23px;
+  width: 345px;
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 206px;
@@ -783,10 +784,22 @@ img {
 }
 .latter-compositions__playlist {
   margin: 0 auto;
-  padding: 16px 20px 0 16px;
+  padding: 0;
   width: 100%;
   list-style: none;
+}
+.latter-compositions__audio-item {
+  padding-top: 16px;
   background-color: #f5f6f6;
+}
+.latter-compositions__audio-item:not(:last-child) {
+  margin-bottom: 23px;
+}
+.latter-compositions__wrapper {
+  width: 100%;
+  padding-bottom: 17px;
+  padding-left: 16px;
+  padding-right: 20px;
 }
 .latter-compositions__audio-year {
   width: 181px;
@@ -852,6 +865,38 @@ img {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
+.latter-compositions__player {
+  position: relative;
+  width: 100%;
+  height: 194px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+.latter-compositions__player--indian-summer {
+  background-image: url('../img/indian-summer-mobile@1x.jpg');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .latter-compositions__player--indian-summer {
+    background-image: url('../img/indian-summer-mobile@2x.jpg');
+  }
+}
+.latter-compositions__player--indian-summer-remix {
+  background-image: url('../img/indian-summer-remix-mobile@1x.jpg');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .latter-compositions__player--indian-summer-remix {
+    background-image: url('../img/indian-summer-remix-mobile@2x.jpg');
+  }
+}
+.latter-compositions__player--chill-nation {
+  background-image: url('../img/chill-nation-mobile@1x.jpg');
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .latter-compositions__player--chill-nation {
+    background-image: url('../img/chill-nation-mobile@2x.jpg');
+  }
+}
 .social {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -860,6 +905,8 @@ img {
       -ms-flex-align: center;
           align-items: center;
   padding: 0;
+  padding-bottom: 5px;
+  vertical-align: bottom;
   font-family: "Myriad Pro", "Arial", sans-serif;
   font-size: 8px;
   line-height: 8px;
@@ -891,4 +938,86 @@ img {
 }
 .social__link-icon--listened {
   top: -2px;
+}
+.player-control {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 252px;
+  height: 15px;
+  margin-left: -129px;
+  font-weight: 300;
+  font-size: 7px;
+  line-height: 7px;
+  color: #ffffff;
+}
+.player-control__toggle {
+  position: relative;
+  width: 14px;
+  height: 100%;
+  margin-right: 8px;
+  border: none;
+  background-color: transparent;
+}
+.player-control__toggle:before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -5px;
+  border: 5px solid transparent;
+  border-left: 7px solid #ffffff;
+}
+.player-control__toggle--playing:before {
+  width: 2px;
+  height: 8px;
+  margin-top: -4px;
+  border: none;
+  background-color: #ffffff;
+  -webkit-box-shadow: 4px 0 0 #ffffff;
+          box-shadow: 4px 0 0 #ffffff;
+}
+.player-control__bar {
+  position: relative;
+  width: 180px;
+  height: 2px;
+  margin-right: 6px;
+  background-color: #6f6f6f;
+}
+.player-control__progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #ffffff;
+}
+.player-control__pin {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  display: none;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.player-control__toggle--current + .player-control__bar .player-control__pin {
+  display: block;
+}
+.player-control__time {
+  margin: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: right;
+  color: #ffffff;
+}
+.player-control__total-time {
+  color: #898989;
 }
